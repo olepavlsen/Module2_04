@@ -1,18 +1,14 @@
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-# primes = []
+primes = []
 no_primes = []
-for i in range(1, 15):
-    a = numbers[i]
-    for j in range(1, (a//2)+1):
-        b = numbers[j]
-        c = a % b
-        if c == 0 and a != b:
-            no_primes.append(numbers[i])
-numbers.remove(1)
-setN = set(numbers)
-setNP = set(no_primes)
-setP = setN.difference(setNP)
-primes = list(setP)
-no_primes = list(setNP)
+for i in range(2, len(numbers)+1):
+    k = 0
+    for j in range(1, i+1):
+        if i % j == 0:
+            k += 1
+    if k == 2:
+        primes.append(i)
+    else:
+        no_primes.append(i)
 print('Primes:', primes)
 print('Not primes:', no_primes)
